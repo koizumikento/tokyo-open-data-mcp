@@ -4,6 +4,8 @@
 
 [uv](https://docs.astral.sh/uv/) と Git が必要です。Python 3.12以上に対応しています。APIキーは不要です。
 
+[MCP登録](#mcpクライアントに登録する) · [CLI](#cliで使う) · [Pythonライブラリ](#pythonライブラリとして使う)
+
 ## MCPクライアントに登録する
 
 ### Codex
@@ -66,13 +68,15 @@ uvx --python 3.12 --from git+https://github.com/koizumikento/tokyo-open-data-mcp
 
 結果は標準出力にUTF-8のJSONで返ります。
 
-## Pythonから呼び出す
+## Pythonライブラリとして使う
+
+自分のPythonプロジェクト（`pyproject.toml` があるディレクトリ）で依存関係に追加します。
 
 ```sh
-git clone https://github.com/koizumikento/tokyo-open-data-mcp.git
-cd tokyo-open-data-mcp
-uv sync --locked
+uv add "git+https://github.com/koizumikento/tokyo-open-data-mcp.git@main"
 ```
+
+次のコードを `example.py` に保存し、同じディレクトリで `uv run python example.py` を実行します。
 
 ```python
 import asyncio
