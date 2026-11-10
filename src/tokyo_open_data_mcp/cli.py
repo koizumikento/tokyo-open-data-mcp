@@ -17,6 +17,10 @@ def run_cli(argv: Sequence[str]) -> None:
     command.add_argument("--latitude", type=float, required=True)
     command.add_argument("--longitude", type=float, required=True)
     command.add_argument("--require-ostomate", action="store_true")
+    command.add_argument("--require-ostomate-warm-water", action="store_true")
+    command.add_argument("--require-universal-sheet", action="store_true")
+    command.add_argument("--require-baby-changing-table", action="store_true")
+    command.add_argument("--source-kind", choices=("facility", "rail"))
     command.add_argument("--limit", type=int)
     command.set_defaults(handler=find_accessible_toilets)
 
